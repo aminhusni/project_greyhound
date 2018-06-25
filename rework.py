@@ -6,239 +6,238 @@ import serial
 from omxplayer.player import OMXPlayer
 from pathlib import Path
 from time import sleep
-win=tk.Tk()
-win.title("PROJECT GREYHOUND")
-win.attributes("-fullscreen",True)
-photo=tk.PhotoImage(file="/home/pi/Desktop/projectvideo/background.png")
-myFont=tkinter.font.Font(family='Helvetica',size=12,weight="bold")
-serial=serial.Serial('/dev/ttyUSB0',9600)
-videovar="null"
-FULL=Path("/home/pi/Desktop/projectvideo/full.mp4")
-tapflag=0
-player1=OMXPlayer(FULL,args=["--orientation","90","--loop","--no-osd"],dbus_name='org.mpris.MediaPlayer2.omxplayer0')
+G=tk.Tk()
+G.title("PROJECT GREYHOUND")
+G.attributes("-fullscreen",True)
+c=tk.PhotoImage(file="/home/pi/Desktop/projectvideo/background.png")
+q=tkinter.font.Font(family='Helvetica',size=12,weight="bold")
+H=serial.Serial('/dev/ttyUSB0',9600)
+B="null"
+L=Path("/home/pi/Desktop/projectvideo/full.mp4")
+o=0
+X=OMXPlayer(L,args=["--orientation","90","--loop","--no-osd"],dbus_name='org.mpris.MediaPlayer2.omxplayer0')
 def disable():
- choicebutton1.config(state=tk.DISABLED)
+ r.config(state=tk.DISABLED)
 def enable():
- choicebutton1.config(state=tk.NORMAL)
+ r.config(state=tk.NORMAL)
 def watchdog():
  while(True):
   print("watchdog ended")
-  watchdogflag.wait() 
-  timeoutflag.clear()
+  f.wait()
+  u.clear()
   print("watchdog started")
-  watchdogflag.clear()
-  sleep(15)
-  if(not timeoutflag.isSet()):
+  f.clear()
+  m(15)
+  if(not u.isSet()):
    print("timeout")
    serial.write(b'r')
-   idleblock.set()
+   K.set()
 def tap():
- tapflag.set()
+ o.set()
 def ultrabypass():
  serial.write(b'8')
-def looper(starttime,videoname,endtime):
+def looper(v,videoname,T):
  print("Looper active")
  print("Video name: "+videoname)
- print("Start pos: "+str(starttime))
- global videovar
+ print("Start pos: "+str(v))
+ global B
  while(True):
-  sleep(0.01)
-  currentvidtime=player1.position()
-  if(currentvidtime>=endtime):
-   print("Relooping back to:"+str(starttime))
-   player1.set_position(starttime)
-  if(videoname!=videovar):
+  m(0.01)
+  y=X.position()
+  if(y>=T):
+   print("Relooping back to:"+str(v))
+   X.set_position(v)
+  if(videoname!=B):
    print("Video changed!")
    break
 def seeking():
- global videovar
+ global B
  print("Seeking thread started")
- sleep(1)
- print(videovar)
+ m(1)
+ print(B)
  while(True):
-  sleep(1)
+  m(1)
   print("From seeking thread:")
-  print(videovar)
-  if(videovar=="idle"):
+  print(B)
+  if(B=="idle"):
    print("video set to idle")
-   starttime=0
-   duration=19
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"idle",endtime)
-  if(videovar=="tappls"):
+   v=0
+   i=19
+   X.set_position(v)
+   T=v+i
+   looper(v,"idle",T)
+  if(B=="tappls"):
    print("video set to tappls")
-   starttime=21
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"tappls",endtime)
-  if(videovar=="instruct"):
+   v=21
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"tappls",T)
+  if(B=="instruct"):
    print("video set to instruct")
-   starttime=36
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"instruct",endtime)
-  if(videovar=="instruct2"):
+   v=36
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"instruct",T)
+  if(B=="instruct2"):
    print("video set to instruct2")
-   starttime=51
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"instruct2",endtime)
-  if(videovar=="charge1"):
+   v=51
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"instruct2",T)
+  if(B=="charge1"):
    print("video set to charge1")
-   starttime=66
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"charge1",endtime)
-  if(videovar=="charge2"):
+   v=66
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"charge1",T)
+  if(B=="charge2"):
    print("video set to charge2")
-   starttime=81
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"charge2",endtime)
-  if(videovar=="charge3"):
+   v=81
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"charge2",T)
+  if(B=="charge3"):
    print("video set to charge3")
-   starttime=96
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"charge3",endtime)
-  if(videovar=="charge4"):
+   v=96
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"charge3",T)
+  if(B=="charge4"):
    print("video set to charge4")
-   starttime=111
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"charge4",endtime)
-  if(videovar=="charge5"):
+   v=111
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"charge4",T)
+  if(B=="charge5"):
    print("video set to charge5")
-   starttime=126
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"charge5",endtime)
-  if(videovar=="chargesucc"):
+   v=126
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"charge5",T)
+  if(B=="chargesucc"):
    print("video set to chargesucc")
-   starttime=141
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"chargesucc",endtime)
-  if(videovar=="dispense"):
+   v=141
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"chargesucc",T)
+  if(B=="dispense"):
    print("video set to dispense")
-   starttime=156
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"dispense",endtime)
-  if(videovar=="dispense2"):
+   v=156
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"dispense",T)
+  if(B=="dispense2"):
    print("video set to dispense2")
-   starttime=171
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"dispense2",endtime)
-  if(videovar=="fail"):
+   v=171
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"dispense2",T)
+  if(B=="fail"):
    print("video set to fail")
-   starttime=186
-   duration=14
-   player1.set_position(starttime)
-   endtime=starttime+duration
-   looper(starttime,"fail",endtime)
+   v=186
+   i=14
+   X.set_position(v)
+   T=v+i
+   looper(v,"fail",T)
 def idle():
- global videovar
+ global B
  print("PROGRAM START")
  while(True):
   disable()
-  videovar="idle"
+  B="idle"
   print("From idle thread:")
-  print(videovar)
-  reading=serial.readline() 
-  print(reading)
-  if(reading==b"ultra\n"):
+  print(B)
+  D=serial.readline()
+  print(D)
+  if(D==b"ultra\n"):
    print("Ultra detected")
    enable()
-   watchdogflag.set()
-   videovar="tappls"
-   idleblock.wait() 
-   idleblock.clear()
+   f.set()
+   B="tappls"
+   K.wait()
+   K.clear()
 def runseries():
- global videovar
+ global B
  while(True):
-  tapflag.wait() 
-  tapflag.clear()
-  timeoutflag.set() 
+  o.wait()
+  o.clear()
+  u.set()
   serial.write(b'1')
-  videovar="instruct"
-  tapflag.wait()
-  tapflag.clear()
+  B="instruct"
+  o.wait()
+  o.clear()
   disable()
-  videovar="instruct2"
-  reading=serial.readline() 
-  if(reading==b"yes\n"):
+  B="instruct2"
+  D=serial.readline()
+  if(D==b"yes\n"):
    print("Stage1 complete")
-   videovar="charge1"
-  reading=serial.readline() 
-  if(reading==b"yes\n"):
+   B="charge1"
+  D=serial.readline()
+  if(D==b"yes\n"):
    print("Stage2 complete")
-   videovar="charge2"
-  reading=serial.readline() 
-  if(reading==b"yes\n"):
+   B="charge2"
+  D=serial.readline()
+  if(D==b"yes\n"):
    print("Stage3 complete")
-   videovar="charge3"
-  reading=serial.readline() 
-  if(reading==b"yes\n"):
+   B="charge3"
+  D=serial.readline()
+  if(D==b"yes\n"):
    print("Stage4 complete")
-   videovar="charge4"
-  reading=serial.readline() 
-  if(reading==b"yes\n"): 
+   B="charge4"
+  D=serial.readline()
+  if(D==b"yes\n"):
    print("Stage5 complete")
-   videovar="charge5"
-  elif(reading==b"no\n"):
+   B="charge5"
+  elif(D==b"no\n"):
    pass
-  serial.readline() 
+  serial.readline()
   print("Stage6 complete")
-  reading=serial.readline() 
-  sleep(3)
-  if(reading==b"succ\n"):
+  D=serial.readline()
+  m(3)
+  if(D==b"succ\n"):
    print("SUCCESS DISPENSE")
-   videovar="chargesucc"
-   sleep(2)
-   videovar="dispense"
-   sleep(5)
-   videovar="dispense2"
-   sleep(5)
-  elif(reading==b"fail\n"):
-   videovar="fail"
-   sleep(6)
+   B="chargesucc"
+   m(2)
+   B="dispense"
+   m(5)
+   B="dispense2"
+   m(5)
+  elif(D==b"fail\n"):
+   B="fail"
+   m(6)
    print("FAIL NO DISPENSE")
    pass
-  sleep(5)
-  idleblock.set()
-threadidle=threading.Thread(target=idle)
-threadseries=threading.Thread(target=runseries)
-threadwatchdog=threading.Thread(target=watchdog)
-threadseeking=threading.Thread(target=seeking)
-tapflag=threading.Event()
-watchdogflag=threading.Event()
-timeoutflag=threading.Event()
-seriesblock=threading.Event()
-idleblock=threading.Event()
-blockbutton=threading.Event()
-choicebutton1=tk.Button(win,text='TAP',font=myFont,command=tap,height=90,width=190)
-choicebutton1.grid(row=1,column=0,sticky=tk.NSEW)
-choicebutton=tk.Button(win,text='BYPASS',font=myFont,command=ultrabypass,height=90,width=20)
-choicebutton.grid(row=1,column=1,sticky=tk.NSEW)
+  m(5)
+  K.set()
+a=threading.Thread(target=idle)
+h=threading.Thread(target=runseries)
+j=threading.Thread(target=watchdog)
+W=threading.Thread(target=seeking)
+o=threading.Event()
+f=threading.Event()
+u=threading.Event()
+E=threading.Event()
+K=threading.Event()
+F=threading.Event()
+r=tk.Button(G,text='TAP',font=myFont,command=tap,height=90,width=190)
+r.grid(row=1,column=0,sticky=tk.NSEW)
+Q=tk.Button(G,text='BYPASS',font=myFont,command=ultrabypass,height=90,width=20)
+Q.grid(row=1,column=1,sticky=tk.NSEW)
 if __name__=='__main__':
- threadidle.start()
- threadseries.start()
- threadwatchdog.start()
- threadseeking.start()
- win.mainloop()
+ a.start()
+ h.start()
+ j.start()
+ W.start()
+ G.mainloop()
  print("EXIT EXIT")
-
