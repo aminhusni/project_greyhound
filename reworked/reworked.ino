@@ -36,7 +36,7 @@ const int chargelim = 5; //How many bars here
 int jumplim = 6; //How many jumps per bar
 
 unsigned long timestart = 0;
-unsigned long timetres = 25000; //Timeout 35 seconds for charging series
+unsigned long timetres = 10000; //Timeout 35 seconds for charging series
 unsigned long timediff = 0;
 
 int modeselect = 0;
@@ -98,7 +98,7 @@ void setup() { // Serial initialization
 
 void loop() {
         PWM_Mode();
-        delay(500);
+        delay(100);
     } //PWM mode setup function
 
 void PWM_Mode_Setup() {
