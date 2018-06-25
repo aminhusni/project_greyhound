@@ -156,7 +156,7 @@ void PWM_Mode() {
         choice = Serial.read();
         switch (choice) {
         case '1':
-            delay(5000);
+            delay(2000);
             chargeflag = 1;
             timestart = millis();
 
@@ -169,7 +169,7 @@ void PWM_Mode() {
                         delay(500);
                     }
                     timediff = millis() - timestart;
-                    if (timediff > timetres) {
+                    if (timediff >= timetres) {
                         chargeCounter = 90;
                         jumpCounter = 90;
                         chargeflag = 0;
