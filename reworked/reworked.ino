@@ -30,7 +30,7 @@ char bypassser = 0;
 int chargeCounter = 0;
 int jumpCounter = 0;
 int chargeflag = 0;
-int serrsent = 0;
+int serialsent = 0;
 
 const int chargelim = 5; //How many bars here
 int jumplim = 6; //How many jumps per bar
@@ -179,7 +179,7 @@ void PWM_Mode() {
                 chargeCounter++;
                 jumpCounter = 0;
                 Serial.print("yes\n");
-                serrsent++;
+                serialsent++;
                 delay(500);
             }
 
@@ -187,11 +187,11 @@ void PWM_Mode() {
             jumpCounter = 0;
             delay(1000);
 
-            while (serrsent != 6) {
+            while (serialsent != 6) {
                 Serial.print("no\n");
-                serrsent++;
+                serialsent++;
             }
-            serrsent = 0;
+            serialsent = 0;
 
             if (chargeflag == 1) {
                 Serial.print("succ\n");
