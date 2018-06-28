@@ -133,9 +133,6 @@ void PWM_Mode() {
     }
 
     if (modeselect == 1) { //BYPASS MODE
-        if (ULTRA_BYPASS == HIGH) { //CHECK FOR OVERRIDE BUTTON
-            dis = 1;
-        }
         bypassser = Serial.read();
         if (bypassser == '8') {
             dis = 1;
