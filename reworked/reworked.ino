@@ -127,7 +127,7 @@ void PWM_Mode() {
             dis = 1;
         }
         bypassser = Serial.read();
-        if (bypassser == 8) {
+        if (bypassser == '8') {
             dis = 1;
         }
     }
