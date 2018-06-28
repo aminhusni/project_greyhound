@@ -236,7 +236,7 @@ idleblock=threading.Event()
 blockbutton=threading.Event()
 choicebutton1=tk.Button(win,text='TAP',font=myFont,command=tap,height=90,width=190)
 choicebutton1.grid(row=1,column=1,sticky=tk.NSEW)
-choicebutton=tk.Button(win,text='BYPASS',font=myFont,command=ultrabypass,height=90,width=10)
+choicebutton=tk.Button(win,text='BYPASS',font=myFont,command=ultrabypass,height=90,width=20)
 choicebutton.grid(row=1,column=2,sticky=tk.NSEW)
 if __name__=='__main__':
  threadidle.start()
