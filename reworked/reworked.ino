@@ -113,10 +113,20 @@ void PWM_Mode() {
     while (modeselect == 0) {
         if (digitalRead(SELECT_BUTTON) == HIGH) {
             modeselect = 1;
+            myservo.write(0);
+            delay(500);
+            myservo.write(20);
+            delay(500);
+            myservo.write(0);
             break;
         }
         if (digitalRead(SELECT_ULTRA) == HIGH) {
             modeselect = 2;
+            myservo.write(0);
+            delay(500);
+            myservo.write(20);
+            delay(500);
+            myservo.write(0);
             break;
         }
 
