@@ -179,31 +179,31 @@ def runseries():
   tapflag.clear()
   disable()
   videovar="instruct2"
-  reading=serial.readline() 
+  reading=serial.readline() #1
   if(reading==b"yes\n"):
    print("Stage1 complete")
    videovar="charge1"
-  reading=serial.readline() 
+  reading=serial.readline() #2
   if(reading==b"yes\n"):
    print("Stage2 complete")
    videovar="charge2"
-  reading=serial.readline() 
+  reading=serial.readline() #3
   if(reading==b"yes\n"):
    print("Stage3 complete")
    videovar="charge3"
-  reading=serial.readline() 
+  reading=serial.readline() #4
   if(reading==b"yes\n"):
    print("Stage4 complete")
    videovar="charge4"
-  reading=serial.readline() 
+  reading=serial.readline() #5
   if(reading==b"yes\n"): 
    print("Stage5 complete")
    videovar="charge5"
   elif(reading==b"no\n"):
    pass
-  serial.readline() 
+  serial.readline() #6
   print("Stage6 complete")
-  reading=serial.readline() 
+  reading=serial.readline() #Fail or Succ
   sleep(3)
   if(reading==b"succ\n"):
    print("SUCCESS DISPENSE")

@@ -36,7 +36,7 @@ const int chargelim = 5; //How many bars here
 int jumplim = 6; //How many jumps per bar
 
 unsigned long timestart = 0;
-unsigned long timetres = 8000; //Timeout 35 seconds for charging series
+unsigned long timetres = 10000; //Timeout 35 seconds for charging series
 unsigned long timediff = 0;
 
 int modeselect = 0;
@@ -183,15 +183,15 @@ void PWM_Mode() {
                     }
                     delay(10);
                 }
-                chargeCounter++;
+
                 jumpCounter = 0;
                 if(chargeCounter != 90){
                     Serial.print("yes\n");
                 }
-                if(chargeCounter == 90 ){
+                else if(chargeCounter == 90 ){
                     Serial.print("no\n");
                 }
-                
+                chargeCounter++;
                 serialsent++;
                 delay(500);
             }
@@ -227,7 +227,7 @@ void PWM_Mode() {
 
         }
         dis = 999;
-        delay(7000);
+        delay(10000);
 
     }
 
