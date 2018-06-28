@@ -182,10 +182,6 @@ def runseries():
   reading=serial.readline() 
   if(reading==b"yes\n"):
    print("Stage1 complete")
-   videovar="instruct2"
-  reading=serial.readline() 
-  if(reading==b"yes\n"):
-   print("Stage1 complete")
    videovar="charge1"
   reading=serial.readline() 
   if(reading==b"yes\n"):
