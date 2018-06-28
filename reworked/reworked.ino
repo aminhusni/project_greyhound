@@ -36,10 +36,10 @@ const int chargelim = 5; //How many bars here
 int jumplim = 6; //How many jumps per bar
 
 unsigned long timestart = 0;
-unsigned long timetres = 10000; //Timeout 35 seconds for charging series
+unsigned long timetres = 25000; //Timeout 35 seconds for charging series
 unsigned long timediff = 0;
 
-int modeselect = 0;
+int modeselect = 1;
 int SELECT_ULTRA = 4;
 int SELECT_BUTTON = 3;
 int ULTRA_BYPASS = 2;
