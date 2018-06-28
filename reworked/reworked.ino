@@ -192,7 +192,7 @@ void PWM_Mode() {
                     Serial.print("yes\n");
                 }
                 if(chargeCounter == 90 ){
-                    Serial.print("no\n")
+                    Serial.print("no\n");
                 }
                 
                 serialsent++;
